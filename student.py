@@ -29,7 +29,10 @@ class Student:
             name (str): The name of the student.
             student_id (int): The unique ID of the student.
         """
-        pass
+        self.name : str = name
+        self.student_id : int = student_id
+        self.enrolled_courses : list = []
+        self.grades : dict = {} 
 
 
     def enroll_course(self, course):
@@ -42,7 +45,8 @@ class Student:
         Returns:
             None
         """
-        pass
+        if course in self.enrolled_courses:
+            self.enrolled_courses.append(course)
 
     def drop_course(self, course):
         """
@@ -54,7 +58,8 @@ class Student:
         Returns:
             None
         """
-        pass
+        if course in self.enrolled_courses:
+            self.enrolled_courses.remove(course)
 
 
     def submit_grade(self, course, assessment, grade):
@@ -69,4 +74,9 @@ class Student:
         Returns:
             None
         """
-        pass
+        print(f'course is {course}')
+        print(f'assessment is {assessment}')
+        print(f'grade is {grade}')
+        self.grades[course] = grade
+        print(f'dict is : {self.grades}')
+        
