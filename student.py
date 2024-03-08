@@ -33,6 +33,7 @@ class Student:
         self.student_id : int = student_id
         self.enrolled_courses : list = []
         self.grades : dict = {} 
+        self.tmp : dict = {}
 
 
     def enroll_course(self, course):
@@ -75,6 +76,9 @@ class Student:
             None
         """
         
-        self.grades[course] = grade
+        print(f'assessment is : {assessment}')
+
+        self.grades[(course, assessment)] = grade
+        
         print(f'dict is : {self.grades}')
         
