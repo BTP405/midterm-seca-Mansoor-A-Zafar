@@ -37,8 +37,10 @@ class Course:
         Args:
             student (Student): The student object to be enrolled or added to the waitlist.
         """
-        if len(enrolled_students) == self.sections: self.waitlisted_students.append(student)
-        else: self.enrolled_students.append(student)
+        if len(self.enrolled_students) == self.sections: 
+            self.waitlisted_students.append(student)
+        else: 
+            self.enrolled_students.append(student)
 
 
     def remove_student(self, student):

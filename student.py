@@ -33,7 +33,6 @@ class Student:
         self.student_id : int = student_id
         self.enrolled_courses : list = []
         self.grades : dict = {} 
-        self.tmp : dict = {}
 
 
     def enroll_course(self, course):
@@ -46,8 +45,19 @@ class Student:
         Returns:
             None
         """
-        if course in self.enrolled_courses:
+        if(course.prerequisites == self.enrolled_courses):
+            course.add_student(self)
             self.enrolled_courses.append(course)
+        
+        if self.enrolled_courses in course.prerequisites:
+            course.add_student(self)
+            self.enrolled_courses.append(course)
+
+        # if self.enrolled_courses in course.prerequisites:
+        #     course.add_student(self)
+        #     self.enrolled_courses.append(course)
+            
+             
 
     def drop_course(self, course):
         """
@@ -75,10 +85,5 @@ class Student:
         Returns:
             None
         """
-        
-        print(f'assessment is : {assessment}')
-
-        self.grades[(course, assessment)] = grade
-        
-        print(f'dict is : {self.grades}')
+        self.grades[(course, assessment.assessment_type)] = grade
         
