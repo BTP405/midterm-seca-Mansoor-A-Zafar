@@ -74,9 +74,7 @@ class Student:
         Returns:
             None
         """
-        print(f'course is {course}')
-        print(f'assessment is {assessment}')
-        print(f'grade is {grade}')
+        
         self.grades[course] = grade
         print(f'dict is : {self.grades}')
         
