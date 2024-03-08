@@ -22,4 +22,4 @@ class Assessment:
         Args:
             assessment_type (str): The type of assessment.
         """
-        self.assessment_type = assessment_type
+        self.assessment_type : str = assessment_type
